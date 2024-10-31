@@ -1,12 +1,10 @@
-# Your Name Here
+# Ireeann Anderson
 # UWYO COSC 1010
-# Submission Date
-# Lab XX
-# Lab Section: 
+# Submission Date: 10/31/2024
+# Lab 07
+# Lab Section: 16
 # Sources, people worked with, help given to: 
-# your
-# comments
-# here
+# Jhett Carr
 
 
 # Prompt the user for an upper bound 
@@ -17,9 +15,23 @@
     # If a user did not enter a number output a statement saying so
 # You will continue to prompt the user until a proper integer value is entered
 
-factorial = 1
+while True:
+    n = input("Please enter an upper-bound number: ")
 
-print(f"The result of the factorial based on the given bound is {factorial}")
+    if n.isdigit():
+        n = int(n)
+        if n >= 0:
+            factorial = 1
+            var = n
+            while var > 0:
+                factorial = factorial * var
+                var = var - 1
+            print(f"The factorial is {factorial}")
+            break 
+        else:
+                print("Enter a positive number")
+    else:
+        print("Invalid input, enter a positive number")
 
 print("*"*75)
 # Create a while loop that prompts a user for input of an integer values
@@ -37,7 +49,16 @@ print("*"*75)
 # All this together means you will have an intensive while loop that includes multiple if statements, likely with some nesting 
 # The sum should start at 0 
 
-num_sum = 0 
+num_sum = 0
+while True:
+    num = input("Enter a number or 'exit' to quit: ")
+    if num.lower() == "exit" :
+        break
+    if num.isdigit() or (num[0] == "-" and num[1:].isdigit()):
+        number = int(num)
+        num_sum += number
+    else:
+        print("Invalid input, enter a number or 'exit' to quit")
 
 print(f"Your final sum is {num_sum}")
 
@@ -58,5 +79,50 @@ print("*"*75)
     # So, it should function the same for `5 + 6` as `5+6`
 # Print the result of the equation
 # Again, loop through prompting the user for input until `exit` in any casing is input 
+
+def calc(val_1, oper, val_2):
+    if(oper == "+"):
+        return(val_1 + val_2)
+    elif(oper == "-"):
+        return(val_1 - val_2)
+    elif(oper == "*"):
+        return(val_1 * val_2)
+    elif(oper == "/"):
+        if(val_2 != 0):
+              return(val_1 / val_2)
+        else:
+            return("Cannot divide by zero, try again")
+    elif(oper == "%"):
+        return(val_1 % val_2)
+    else:
+        return("Invalid operation, try again")
+
+def user_calc():
+    while True:
+        inp = input("Enter an equation (eg. 5+5, 10/2, etc.) using +, -, *, /, %, or 'exit' to quit: ")
+        if inp.lower() == "exit" :
+            break
+        inp = inp.replace(" ", "")
+        v1 = ""
+        v2 = ""
+        oper = ""
+        move = False
+
+        for char in inp:
+            if char.isdigit() and not move:
+                v1 += char
+            elif char.isdigit() and move:
+                v2 += char
+            else:
+                oper = char
+                move = True
+        if v1 and v2 and oper:
+            v1 = int(v1)
+            v2 = int(v2)
+            print(calc(v1, oper, v2))
+        else:
+            print("Invalid input, please input an equation")
+
+user_calc()
 
         
