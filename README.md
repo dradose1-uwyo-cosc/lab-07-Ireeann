@@ -1,8 +1,8 @@
-# [Name]
-## [Assignment #]
-## [Submission date: MM/DD/YY]
+# Ireeann Anderson
+## [Assignment Lab 07]
+## [Submission date: 10/31/24]
 ## Worked with/sources 
-* example
+* Jhett Carr
 * example
 * example
 * example
